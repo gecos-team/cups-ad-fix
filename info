@@ -1,0 +1,25 @@
+# YAML 1.1
+# Fichero de configuración de paquetes de personalización de Guadalinex v6
+
+# Nombre del paquete (minúsculas-separado-con-guiones)
+name: cups-ad-fix
+
+# Autor 
+author: Diego Martinez Castaneda <dmartinez@solutia-it.es>
+
+# Priority
+priority: optional
+
+# Section
+section: admin
+
+shortdesc: "cups workaround for kerberos authentication"
+
+longdesc: "This package fixes the kerberos authentication problem when printing with samba printers. It changes smb binary file in order to prepare the environment when printing."
+
+# Versión del paquete
+version: 1.0
+
+# Cambios en esta versión
+changes:
+    - initial release.
