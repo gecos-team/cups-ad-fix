@@ -1,0 +1,6 @@
+## DEPENDS
+# This file contains depends 
+## END
+
+samba
+cups
