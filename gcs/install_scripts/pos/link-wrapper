@@ -3,6 +3,6 @@ if [ -L /usr/lib/cups/backend/smb -a ! -f /usr/lib/cups/backend/smbpool ] ; then
 	mv /usr/lib/cups/backend/smb /usr/lib/cups/backend/smbpool
 	cp -f /usr/share/cups-ad-fix/smb_wrapper /usr/lib/cups/backend/smb
 	chown root:root /usr/lib/cups/backend/smb
-	chmod 755 /usr/lib/cups/backend/smb
+	chmod 700 /usr/lib/cups/backend/smb
 	invoke-rc.d cups start
 fi
