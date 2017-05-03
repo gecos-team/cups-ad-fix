@@ -6,6 +6,7 @@
 # Created by Sam Mousa - July 2009
 # Based on code by A. Martins-Melo.
 # 2010/03/03: Updated by Andre Dill
+# 2017/05/03: Updated by Alfonso de Cala: adding quotes to job title ($3) 
 
 # Debuging
 booDebug=1
@@ -71,7 +72,7 @@ fi
 # print the file
 chown $strUserName $strTmpFile
 #strPrintCommand="smbclient //$strServer/$strPrinter -k yes -E -c \"print $strTmpFile\""
-strPrintCommand="smbspool smb://$strServer/$strPrinter $1 $2 $3 $4 \"$5\" $strTmpFile"
+strPrintCommand="smbspool smb://$strServer/$strPrinter $1 $2 '$3' $4 \"$5\" $strTmpFile"
 echo "Print command used is: $strPrintCommand" >> $output
 `su -c "$strPrintCommand" $strUserName`
 intReturn=$?
