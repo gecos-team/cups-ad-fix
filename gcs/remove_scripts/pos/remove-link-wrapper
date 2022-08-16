@@ -1,6 +1,4 @@
-if [ -L /usr/lib/cups/backend/smbpool -a -f /usr/lib/cups/backend/smb ] ; then
-    invoke-rc.d cups stop
+if [ -f /usr/lib/cups/backend/smb.non-kerberized ] ; then
     rm -f /usr/lib/cups/backend/smb
-    mv /usr/lib/cups/backend/smbpool /usr/lib/cups/backend/smb
-    invoke-rc.d cups start
+    mv /usr/lib/cups/backend/smb.non-kerberized /usr/lib/cups/backend/smb
 fi

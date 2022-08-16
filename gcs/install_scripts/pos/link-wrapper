@@ -1,8 +1,8 @@
-if [ -L /usr/lib/cups/backend/smb -a ! -f /usr/lib/cups/backend/smbpool ] ; then
-	invoke-rc.d cups stop
-	mv /usr/lib/cups/backend/smb /usr/lib/cups/backend/smbpool
-	cp -f /usr/share/cups-ad-fix/smb_wrapper /usr/lib/cups/backend/smb
-	chown root:root /usr/lib/cups/backend/smb
-	chmod 700 /usr/lib/cups/backend/smb
-	invoke-rc.d cups start
+
+if [ -f /usr/lib/x86_64-linux-gnu/samba/smbspool_krb5_wrapper ] && [ ! -f /usr/lib/cups/backend/smb.non-kerberized ]
+then
+    mv /usr/lib/cups/backend/smb /usr/lib/cups/backend/smb.non-kerberized
+	ln -s /usr/lib/x86_64-linux-gnu/samba/smbspool_krb5_wrapper /usr/lib/cups/backend/smb
 fi
+
+

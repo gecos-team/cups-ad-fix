@@ -8,20 +8,17 @@ Unfortunately that does not always work.
 
 This package fix it tuning some files:
 
-/etc/cups/cupsd.conf
-
-    This package adds a new Operation Policy Section: "<Policy Kerberos-AD>"
-    This section contains a subsection "<Limit Create-Job Print-Job Print-URI Validate-Job>"
-    This subsection must have a line "AuthType Negotiate"
-
 /usr/lib/cups/backend/smb 
 
-    This CUPS backend does not work with kerberos credentials
-    We use another one. Permissions must be set properly or CUPS will complain.
+    The default CUPS smb backend does not work with kerberos credentials
+    Smbclient package provides a wrapper for kerberized printers, so this
+    package replaces that backed with the new one
 
 
-To use this fix, you need to configure your printers to use this new Operation Policy.
+To use this fix, you need to configure your printers to use the kerberos Operation Policy.
+
 Check /etc/cups/printers.conf: 
 
-    Must contain your printer definition, and MUST contain an "OpPolicy Kerberos-AD"
-    AuthInfoRequired must be None (although CUPS set it to "user,password" randomly)                            
+    Must contain your printer definition, and MUST contain an "OpPolicy kerberos"
+    AuthInfoRequired must be negotiate
+    
